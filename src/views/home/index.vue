@@ -1,6 +1,7 @@
 <template>
   <div>
     <a href="">hello</a>
+    <a-button type="primary">Primary Button</a-button>
   </div>
 </template>
 

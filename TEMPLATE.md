@@ -16,7 +16,6 @@
 
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite) - 快！
 - 💪 [Typescript](https://www.typescriptlang.org/) - 当然！必不可少
-- 🎉 [Element Plus 开箱即用](https://github.com/element-plus/element-plus) - 基于 Vue.js 3 的强大 UI 库
 - 🔥 [Axios 配置和封装](https://github.com/axios/axios) - 基于 Promise 的 HTTP 请求库
 - 💡 [Vue Router 4](https://router.vuejs.org/zh/) - Vuejs 的官方路由
 - 📦 [组件自动按需加载](https://github.com/antfu/unplugin-vue-components) - 自动按需注册组件, 无需 import
@@ -37,7 +36,6 @@
 
 - [Windi CSS](https://github.com/windicss/windicss) (按需的 [TailwindCSS](https://tailwindcss.com/)) - 更轻，更快和和一系列额外的特性!
   - [Windi CSS Typography](https://windicss.org/plugins/official/typography.html)
-- [Element Plus](https://github.com/element-plus/element-plus) - 基于 Vue.js 3 的强大 UI 库
 
 ### Icons
 

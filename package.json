@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^7.5.5",
+    "ant-design-vue": "^3.2.0",
     "axios": "^0.25.0",
-    "element-plus": "^2.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.9",
     "prism-theme-vars": "^0.2.2",

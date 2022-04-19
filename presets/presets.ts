@@ -6,7 +6,7 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
-import { ElementPlusResolver, VueUseComponentsResolver } from 'unplugin-vue-components/resolvers';
+import { AntDesignVueResolver, VueUseComponentsResolver } from 'unplugin-vue-components/resolvers';
 import WindiCSS from 'vite-plugin-windicss';
 import Markdown from 'vite-plugin-md';
 import Prism from 'markdown-it-prism';
@@ -38,7 +38,7 @@ export default (env: ConfigEnv) => {
         filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       },
-      resolvers: [ElementPlusResolver()],
+      resolvers: [AntDesignVueResolver()],
     }),
     Components({
       dts: './src/components.d.ts',
@@ -46,7 +46,7 @@ export default (env: ConfigEnv) => {
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       // imports 指定组件所在位置，默认为 src/components; 有需要也可以加上 view 目录
       dirs: ['src/components/'],
-      resolvers: [ElementPlusResolver(), IconsResolver(), VueUseComponentsResolver()],
+      resolvers: [AntDesignVueResolver(), IconsResolver(), VueUseComponentsResolver()],
     }),
     Icons({
       compiler: 'vue3',
