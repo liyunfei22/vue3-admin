@@ -1,8 +1,15 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import { message } from 'ant-design-vue';
 import showCodeMessage from '@/api/code';
 import { formatJsonToUrlParams, instanceObject } from '@/utils/format';
 
+export interface ResponseData<T> {
+  code: number;
+  data?: T;
+  msg: string;
+}
 const BASE_PREFIX = import.meta.env.VITE_API_BASEURL;
+// axios.defaults.withCredentials = true; // 若跨域请求需要带 cookie 身份识别
 
 // 创建实例
 const axiosInstance: AxiosInstance = axios.create({
@@ -32,24 +39,24 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => {
     if (response.status === 200) {
-      return response;
+      return response.data;
     }
-    ElMessage.info(JSON.stringify(response.status));
+    message.info(JSON.stringify(response.status));
     return response;
   },
   (error: AxiosError) => {
     const { response } = error;
     if (response) {
-      ElMessage.error(showCodeMessage(response.status));
+      message.error(showCodeMessage(response.status));
       return Promise.reject(response.data);
     }
-    ElMessage.warning('网络连接异常,请稍后再试!');
+    message.warning('网络连接异常,请稍后再试!');
     return Promise.reject(error);
   },
 );
 const service = {
-  get: (url: string, data?: object) => axiosInstance.get(url, { params: data }),
-  post: (url: string, data?: object) => axiosInstance.post(url, data),
+  get: <T>(url: string, data?: object): Promise<ResponseData<T>> => axiosInstance.get(url, { params: data }),
+  post: <T>(url: string, data?: object): Promise<ResponseData<T>> => axiosInstance.post(url, data),
   put: (url: string, data?: object) => axiosInstance.put(url, data),
   delete: (url: string, data?: object) => axiosInstance.delete(url, data),
   upload: (url: string, file: File) =>
